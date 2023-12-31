@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.9/css/weather-icons.min.css">
+    <style>
+        body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            
+        }
+         input[type="text"] {
+    height: 50px;
+    width: 290px;
+    appearance: none;
+    box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12);
+    border-radius: 10px;
+    border: 8px solid #ececec;
+    background-color: #c9c9c9;
+    cursor: pointer;
+    outline: none;
+    padding: 0px 15px;
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s;
+    border:none;
+}
+
+ input[type="text"]:after {
+    font-family: FontAwesome;
+    content: '\f011';
+    position: absolute;
+    color: #7a7a7a;
+    background-color: #c9c9c9;
+    font-size: 30px;
+    color: red
+    
+}
+
+ input[type="text"]:focus {
+    box-shadow: -10px -10px 15px rgba(255, 255, 255, 0.5), 10px 10px 15px rgba(70, 70, 70, 0.12), inset -10px -10px 15px rgba(255, 255, 255, 0.5), inset 10px 10px 15px rgba(70, 70, 70, 0.12);
+    color: rgb(14, 14, 14);
+    background-color: #c9c9c9;
+    
+}
+
+ input[type="text"]:focus:after {
+    color: rgb(14, 14, 14);
+    background-color: #c9c9c9;
+}
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .card {
+            border: none;
+            background-color: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        .forecast {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 10px;
+        }
+        h1 {
+            color: #333;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        /* button.btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        button.btn-primary:hover {
+            background-color: #0056b3;
+        } */
+        .wi {
+            font-size: 48px;
+        }
+        /* Background styles */
+/* Background styles */
+body {
+
+    background: #c9c9c9;
+
+}
+
+/* Glassmorphism card effect */
+.card {
+    border-radius: 50px;
+background: #c9c9c9;
+box-shadow:  20px 20px 60px #ababab,
+             -20px -20px 60px #e7e7e7;
+}
+.card {
+ position: relative;
+ width: 220px;
+ height: 300px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ transition: 0.5s;
+ z-index: 1;
+}
+button {
+  padding: 1.5em 5em;
+  background: #efefef;
+  border: none;
+  border-radius: .5rem;
+  color: #444;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: .2rem;
+  text-align: center;
+  outline: none;
+  cursor: pointer;
+  transition: .2s ease-in-out;
+  box-shadow: -6px -6px 14px rgba(255, 255, 255, .7),
+              -6px -6px 10px rgba(255, 255, 255, .5),
+              6px 6px 8px rgba(255, 255, 255, .075),
+              6px 6px 10px rgba(0, 0, 0, .15);
+}
+button:hover {
+  box-shadow: -2px -2px 6px rgba(255, 255, 255, .6),
+              -2px -2px 4px rgba(255, 255, 255, .4),
+              2px 2px 2px rgba(255, 255, 255, .05),
+              2px 2px 4px rgba(0, 0, 0, .1);
+}
+button:active {
+  box-shadow: inset -2px -2px 6px rgba(255, 255, 255, .7),
+              inset -2px -2px 4px rgba(255, 255, 255, .5),
+              inset 2px 2px 2px rgba(255, 255, 255, .075),
+              inset 2px 2px 4px rgba(0, 0, 0, .15);
+}
+.card-sm:hover{
+	box-shadow: inset -13px -13px 26px #fff, 
+             	inset 13px 13px 26px #fff;
+                .wi{
+                    transform: scale(1.1); /* Scale the icon on hover */
+                    transition: transform 0.2s ease-in-out; /* Add a smooth transition effect */
+                    color: #fff; /* Change the icon color to white on hover */
+                    filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)); /* Add a neumorphic shadow effect on hover */
+                }
+                
+}
+/* Media query for smaller screens */
+@media (max-width: 576px) {
+  /* Make the get weather button and input box wider */
+  #getWeather {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  input[type="text"] {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* Make the current weather card section smaller and more compact */
+  .card-sm {
+    width: 250px;
+    max-width: 100%;
+  }
+
+  /* Display the 5-day weather forecast cards in a responsive grid layout */
+  .forecast {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+  }
+
+  /* On smaller screens, display 3 cards per row, with the remaining 2 cards on the next line */
+  @media (max-width: 375px) {
+    .forecast {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* Make all 5 forecast cards the same size */
+  .forecast-item {
+    width: 100%;
+  }
+}
+/* Media query for small screens */
+@media (max-width: 576px) {
+  /* Current weather card section */
+  .card-sm {
+  border: none;
+  border-radius: 50px;
+  background: #c9c9c9;
+  box-shadow: 20px 20px 60px #ababab, -20px -20px 60px #e7e7e7;
+  padding: 20px;
+}
+
+
+  .card-sm .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 5-day weather forecast cards */
+  .forecast {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+  }
+
+  /* On smaller screens, display 2 cards per row */
+  @media (max-width: 375px) {
+    .forecast {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  /* Make all 5 forecast cards the same size */
+  .forecast-item {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Weather App</h1>
+        <div class="form-group my-5 mx-3">
+            <input type="text"  id="city" placeholder="Enter City Name (e.g. London)" class="w-sm-100">
+        </div>
+        <button type="button" class="btn text-dark mr-2 mb-2" id="getWeather" style="width: 25%;">Get Weather</button>
+        <div id="weatherInfo" class="mt-4">
+            <div class="row class="layout">
+              <div class="col-md-6">
+                <div id="currentWeather"></div>
+              </div>
+              <div class="col-md-6 position-relative mt-5">
+                <div id="fiveDayForecast"></div>
+              </div>
+            </div>
+          </div>
+          
+    </div>
+
+    <script>
+        const apiKey = '561e8061ef7517f3241c6f91c118b9fb';
+        const currentWeatherUrl = 'https://api.openweathermap.org/data/2.5/weather?q=';
+        const forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast?q=';
+
+        const getWeatherData = async () => {
+            const city = document.getElementById('city').value;
+            const weatherInfo = document.getElementById('weatherInfo');
+
+            if (city) {
+                try {
+                    const currentResponse = await fetch(currentWeatherUrl + city + '&appid=' + apiKey);
+                    const currentData = await currentResponse.json();
+
+                    const forecastResponse = await fetch(forecastUrl + city + '&appid=' + apiKey);
+                    const forecastData = await forecastResponse.json();
+                    const dailyForecasts = forecastData.list.filter((forecast, index) => index % 8 === 0);
+
+                    let output = '';
+
+            // Display current weather as a Bootstrap card
+            
+            output += '<div class="card-sm card w-100 p-5 mt-5">';
+            output += `<h2 class="card-title mt-5 pt-3">Current Weather for ${city}</h2>`;
+
+            output += `<i class="wi wi-owm-${currentData.weather[0].id} wi" style="font-size: 72px;"></i>`;
+            console.log(currentData.weather[0]);
+            output += `<p class="card-text" style="font-size: 24px;">${currentData.weather[0].description}</p>`;
+
+            output += `<p class="card-text" style="font-size: 32px;">${(currentData.main.temp - 273.15).toFixed(2)}°C</p>`;
+            console.log(currentData);
+
+            output += '<div class="row mb-5 d-flex flex-row justify-content-between ">';
+            output += `<p class="card-text">${currentData.main.humidity}% <i class="wi wi-humidity mx-2" style="font-size: 20px;" no-hover></i></p>`;
+            output += `<p class="card-text">${currentData.wind.speed} m/s <i class="wi wi-strong-wind mx-2" style="font-size: 20px;" no-hover></i></p>`;
+            output += '</div>';
+            output += '</div>';
+
+            output += '</div>';
+
+            output += '<div">';
+            output += `<h2 class="mt-5">5-Day Weather Forecast for ${city}</h2>`;
+            output += '<div class="forecast mt-5">';
+                console.log(dailyForecasts);
+
+            dailyForecasts.forEach((forecast, index) => {
+                const date = new Date(forecast.dt * 1000);
+                console.log(date);
+                console.log(forecast);
+                const description = forecast.weather[0].description;
+                const temperature = (forecast.main.temp - 273.15).toFixed(2);
+                const iconClass = `wi wi-owm-${forecast.weather[0].id}`;
+
+                output += `
+                    <div class="forecast-item card-sm card m-4 py-5 ms-sm-5">
+                        <p>${index === 0 ? 'Today' : getDayName(date.getDay())}</p>
+                        <i class="${iconClass} wi"></i>
+                        <br>
+                        <p>${description}</p>
+                        <p class="heading">${temperature}°C</p>
+                    </div>
+                `;
+            });
+
+            output += '</div>';
+            function getDayName(day) {
+                const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                return daysOfWeek[day];
+            }
+
+
+                    weatherInfo.innerHTML = output;
+                } catch (error) {
+                    weatherInfo.innerHTML = `<p>Error: ${error.message}</p>`;
+                }
+            } else {
+                weatherInfo.innerHTML = `<p>Please enter a city name.</p>`;
+            }
+        };
+
+        document.getElementById('getWeather').addEventListener('click', getWeatherData);
+    </script>
+</body>
+</html>
